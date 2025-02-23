@@ -10,7 +10,21 @@ type Query{
   user(id:ID):User
   }
 
-
+  type Mutation{
+  register(user:newUser):User!
+  login(user:loggedInUser):String
+  }
+input newUser{
+  name: String!,
+  email: String!,
+  password: String!,
+  role: String
+  }
+  
+input loggedInUser{
+email: String!,
+password: String!,
+}
 
 
 `
