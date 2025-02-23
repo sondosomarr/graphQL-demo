@@ -32,6 +32,19 @@ try {
 } catch (error) {
     throw new Error("Login failed" + error.message)
 }
+},
+async deleteUser(_,{id},context){
+    if(context.role=="admin"){
+        try {
+            await usersModel.findByIdAndDelete(id)
+            return "User deleted successfully"
+        } catch (error) {
+            throw new Error(error.message);
+            
+        }
+    }else{
+        throw new Error("Only admin can delete users")
+    }
 }
 }
 

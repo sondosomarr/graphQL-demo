@@ -13,6 +13,7 @@ type Query{
   type Mutation{
   register(user:newUser):User!
   login(user:loggedInUser):String
+  deleteUser(id:ID):String
   }
 input newUser{
   name: String!,
